@@ -1,0 +1,101 @@
+body{
+  margin:20px;
+}
+
+.err_tip {
+  position: absolute;
+  bottom: 50px;
+  right: 0px;
+  width: 200px;
+  background-color: #DA362A;
+  color: white;
+  padding: 2px;
+  border-radius: 16px;
+  box-shadow: 3px 3px 10px #888888;
+  margin: 5px;
+  text-align: center;
+  border: 2px solid #000000;
+  z-index: 1;
+}
+
+.err_tip:after, .err_tip:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.err_tip:after {
+	border-color: rgba(218, 54, 42, 0);
+	border-top-color: #DA362A;
+	border-width: 10px;
+	margin-left: -10px;
+}
+.err_tip:before {
+	border-color: rgba(0, 0, 0, 0);
+	border-top-color: #000000;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+  display:block!important;
+}
+
+
+.animate-show {
+  -webkit-transition:all 0.3s;
+  transition:all 0.3s;
+  opacity:1;
+}
+
+
+
+.animate-show.ng-hide {
+  opacity:0;
+}
+
+.form-control {
+  border: 2px solid #ccc;
+}
+
+.animate-switch-container {
+  position:relative;
+  background:white;
+
+  height:200px;
+
+}
+
+
+
+.animate-switch.ng-animate {
+
+  transition:all  1s;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.animate-switch.ng-leave.ng-leave-active{
+  opacity:0;
+}
+
+.animate-switch.ng-enter {
+opacity:0;
+}
+.animate-switch.ng-leave{
+opacity:1;
+}
+.animate-switch.ng-enter.ng-enter-active {
+  opacity:1;
+}
