@@ -5,7 +5,7 @@ body{
   position:relative;
 }
 .animate-switch.ng-animate {
-  transition:all  1s;
+  transition:all  0.5s;
   position:absolute;
   top:0;
   left:0;
@@ -26,7 +26,7 @@ body{
 }
 
 
-
+/*Error Tooltip */
 .err_tip {
   position: absolute;
   bottom: 50px;
@@ -52,7 +52,6 @@ body{
   position: absolute;
   pointer-events: none;
 }
-
 .err_tip:after {
   border-color: rgba(218, 54, 42, 0);
   border-top-color: #DA362A;
