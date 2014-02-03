@@ -10,9 +10,9 @@ function MainCtrl($scope, $http) {
     name: "Ronny"
   };
 
-  $scope.update = function(user) {
+  $scope.update = function(user,nextStage) {
     $scope.master = angular.copy(user);
-        $scope.selection = "stage2";
+    $scope.selection = nextStage;
   };
 
   $scope.reset = function() {
@@ -25,8 +25,8 @@ function MainCtrl($scope, $http) {
 
   $scope.reset();
   
-    $scope.back = function() {
-      $scope.selection = "default";
+    $scope.backTo = function(stage) {
+      $scope.selection = stage;
   };
   
 

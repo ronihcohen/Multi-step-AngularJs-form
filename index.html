@@ -1,116 +1,97 @@
 <!DOCTYPE html>
 <html ng-app="plunker">
-
 <head>
   <meta charset="utf-8" />
   <title>AngularJS Plunker</title>
-  <link data-require="bootstrap-css@3.x" data-semver="3.0.3" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+  <link data-require="bootstrap-css@3.x" data-semver="3.0.3" rel="stylesheet" href="http:/netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
   <script>
-    document.write('<base href="' + document.location + '" />');
+  document.write('<base href="' + document.location + '" />');
   </script>
-
   <link rel="stylesheet" href="style.css" />
-  <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.10/angular.js" data-semver="1.2.10"></script>
+  <script src="http://code.angularjs.org/1.2.10/angular.js" data-semver="1.2.10"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-animate.min.js"></script>
-  <script data-require="ui-bootstrap@*" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
   <script src="app.js"></script>
 </head>
-
 <body ng-controller="MainCtrl">
+  <div class="animate-switch-container" ng-switch on="selection">
 
-
-      <div class="animate-switch-container"
-        ng-switch on="selection">
-          <div class="animate-switch" ng-switch-when="stage1" ng-switch-default>
-            
-           
-
-  <form name="form" role="form" novalidate="">
-    <div class="row">
-      <div class="col-xs-4">
-        <div class="form-group" ng-class="{'has-error':  form.uName.$invalid, 'has-success': !form.uName.$invalid}">
-          <label for="uName ">User Name</label>
-          <input type="text " class="form-control " name="uName " placeholder="User Name " ng-model="user.name " required=" " />
-          <div class="err_tip " ng-show="form.uName.$dirty && form.uName.$invalid ">
-            <span ng-show="form.uName.$error.required ">User name is required.</span>
+    <div class="animate-switch"  ng-switch-default>
+      <form name="form" role="form" novalidate="">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="form-group" ng-class="{'has-error':  form.uName.$invalid, 'has-success': !form.uName.$invalid}">
+              <label for="uName ">User Name</label>
+              <input type="text " class="form-control " name="uName " placeholder="User Name " ng-model="user.name " required=" " />
+              <div class="err_tip " ng-show="form.uName.$dirty && form.uName.$invalid ">
+                <span ng-show="form.uName.$error.required ">User name is required.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4 ">
+            <div class="form-group " ng-class="{ 'has-error':  form.uEmail.$invalid, 'has-success': !form.uEmail.$invalid}">
+              <label for="uEmail">Email address</label>
+              <input type="email" class="form-control" name="uEmail" placeholder="Enter email" ng-model="user.email" required="" />
+              <div class="err_tip" ng-show="form.uEmail.$dirty && form.uEmail.$invalid">
+                <span ng-show="form.uEmail.$error.required">This field is required.</span>
+                <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-xs-4 ">
-        <div class="form-group " ng-class="{ 'has-error':  form.uEmail.$invalid, 'has-success': !form.uEmail.$invalid}">
-          <label for="uEmail">Email address</label>
-          <input type="email" class="form-control" name="uEmail" placeholder="Enter email" ng-model="user.email" required="" />
-          <div class="err_tip" ng-show="form.uEmail.$dirty && form.uEmail.$invalid">
-            <span ng-show="form.uEmail.$error.required">This field is required.</span>
-            <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="form-group" ng-class="{'has-error':  form.uPass.$invalid, 'has-success': !form.uPass.$invalid}">
+              <label for="uPass ">Password</label>
+              <input type="text " class="form-control"=n name="uPass" placeholder="Password " ng-model="user.pass " required=" " />
+              <div class="err_tip " ng-show="form.uPass.$dirty && form.uPass.$invalid ">
+                <span ng-show="form.uPass.$error.required ">Password is required.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4 ">
+            <div class="form-group " ng-class="{ 'has-error':  form.uPassConf.$invalid, 'has-success': !form.uPassConf.$invalid}">
+              <label for="uPassConf">Confirm Password</label>
+              <input type="text" class="form-control" name="uPassConf" placeholder="Confirm Password" ng-model="user.passconf" required="" password-match="user.pass" />
+              <div class="err_tip" ng-show="form.uPassConf.$dirty && form.uPassConf.$invalid">
+                <span ng-show="form.uPassConf.$error.required">This field is required.</span>
+                <span ng-show="form.uPassConf.$error.unique">Password does not match the confirm password.</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+        <button class="btn" ng-click="update(user,'stage2')" ng-disabled="form.$invalid" ng-class="{'btn-danger': form.$invalid, 'btn-success': !form.$invalid } ">Next</button>
+      </form>
     </div>
-    <div class="row">
-      <div class="col-xs-4">
-        <div class="form-group" ng-class="{'has-error':  form.uPass.$invalid, 'has-success': !form.uPass.$invalid}">
-          <label for="uPass ">Password</label>
-          <input type="text " class="form-control"=n name="uPass" placeholder="Password " ng-model="user.pass " required=" " />
-          <div class="err_tip " ng-show="form.uPass.$dirty && form.uPass.$invalid ">
-            <span ng-show="form.uPass.$error.required ">Password is required.</span>
+
+    <div class="animate-switch" ng-switch-when="stage2">
+      <form name="form" role="form" novalidate="">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="form-group " ng-class="{ 'has-error':  form.uSecQuest.$invalid, 'has-success': !form.uSecQuest.$invalid}">
+              <label for="uSecQuest">Security Questions</label>
+              <select class="form-control"  ng-model="user.secquest" name="uSecQuest" required="">
+                <option value=""></option>
+                <option ng-repeat="quest in questions" value="{{ quest.id }}">{{ quest.quest }}</option>
+              </select>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-xs-4 ">
-        <div class="form-group " ng-class="{ 'has-error':  form.uPassConf.$invalid, 'has-success': !form.uPassConf.$invalid}">
-          <label for="uPassConf">Confirm Password</label>
-          <input type="text" class="form-control" name="uPassConf" placeholder="Confirm Password" ng-model="user.passconf" required="" password-match="user.pass" />
-          <div class="err_tip" ng-show="form.uPassConf.$dirty && form.uPassConf.$invalid">
-            <span ng-show="form.uPassConf.$error.required">This field is required.</span>
-            <span ng-show="form.uPassConf.$error.unique">Password does not match the confirm password.</span>
+        <button class="btn btn-primary" ng-click="backTo('default')">Back</button>
+        <button class="btn" ng-click="update(user,'stage3')" ng-disabled="form.$invalid " ng-class="{'btn-danger': form.$invalid, 'btn-success': !form.$invalid } ">Next</button>
+      </form>
+    </div>
+
+    <div class="animate-switch" ng-switch-when="stage3">
+        <div class="row">
+          <div class="col-xs-8">
+            <pre>form = {{user | json}}</pre>
+            <pre>master = {{master | json}}</pre>
           </div>
         </div>
-      </div>
     </div>
-    <button class="btn" ng-click="update(user)" ng-disabled="form.$invalid" ng-class="{'btn-danger': form.$invalid, 'btn-success': !form.$invalid } ">Submit</button>
-  </form>
-  
-            
-          </div>
-          
-          <div class="animate-switch" ng-switch-when="stage2">
-            <form name="form" role="form" novalidate="">
-    <div class="row">
-      <div class="col-xs-4">
-        <div class="form-group " ng-class="{ 'has-error':  form.uSecQuest.$invalid, 'has-success': !form.uSecQuest.$invalid}">
-          <label for="uSecQuest">Security Questions</label>
-          <select class="form-control"  ng-model="user.secquest" name="uSecQuest" required="">
-            <option value=""></option>
-            <option ng-repeat="quest in questions" value="{{ quest.id }}">{{ quest.quest }}</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <button class="btn btn-primary" ng-click="back()">Back</button>
-    <button class="btn" ng-click="update(user)" ng-disabled="form.$invalid " ng-class="{'btn-danger': form.$invalid, 'btn-success': !form.$invalid } ">Submit</button>
-     
-  </form>
-  
-  
-          </div>
-      </div>
 
+  </div>
 
-
-
-
-  <br/>
-  </button>
-  <h2>Var dump</h1>
-    <div class="row ">
-      <div class="col-xs-8 ">
-        <pre>form = {{user | json}}</pre>
-        <pre>master = {{master | json}}</pre>
-        <pre>http status code: {{status}}</pre>
-
-      </div>
-    </div>
-  </body>
-
+</body>
 </html>
