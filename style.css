@@ -3,7 +3,7 @@ body{
   background-color: linen;
 }
 
-.formClass{
+.formClass, .msg{
   width: 1000px;
 }
 .animate-switch-container {
