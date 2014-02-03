@@ -4,7 +4,11 @@ var app = angular.module('superForm', ['ngAnimate']);
 /* Controllers */
 function MainCtrl($scope, $http) {
   $scope.master = {
-    name: "Ronny"
+    name: "Ronny",
+    pass: "a",
+    passconf: "a",
+    email: "a@a",
+    secquest: "1"
   };
   $scope.update = function(user,nextStage) {
     $scope.master = angular.copy(user);
@@ -20,6 +24,8 @@ function MainCtrl($scope, $http) {
   $scope.backTo = function(stage) {
     $scope.selection = stage;
   };
+
+
   $scope.method = 'JSONP';
   $scope.url ='http://www.mocky.io/v2/52ea5a9a7cf0cd6806540819?callback=JSON_CALLBACK';
   $scope.fetch = function() {

@@ -17,7 +17,7 @@
   <div class="animate-switch-container" ng-switch on="selection">
 
     <div class="animate-switch"  ng-switch-default>
-      <form name="form" role="form" novalidate="">
+      <form name="form" role="form" novalidate="" class="formClass">
         <div class="row">
           <div class="col-xs-4">
             <div class="form-group" ng-class="{'has-error':  form.uName.$invalid, 'has-success': !form.uName.$invalid}">
@@ -65,7 +65,7 @@
     </div>
 
     <div class="animate-switch" ng-switch-when="stage2">
-      <form name="form" role="form" novalidate="">
+      <form name="form" role="form" novalidate="" class="formClass">
         <div class="row">
           <div class="col-xs-4">
             <div class="form-group " ng-class="{ 'has-error':  form.uSecQuest.$invalid, 'has-success': !form.uSecQuest.$invalid}">
