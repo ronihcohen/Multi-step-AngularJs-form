@@ -13,8 +13,8 @@
   <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
   <script src="app.js"></script>
 </head>
-<body ng-controller="MainCtrl">
-  <div class="animate-switch-container" ng-switch on="selection">
+<body ng-controller="MainCtrl" >
+  <div class="animate-switch-container" ng-switch on="selection" ng-class="{forward: direction, backward: !direction}">
 
     <div class="animate-switch"  ng-switch-default>
       <form name="form" role="form" novalidate="" class="formClass">

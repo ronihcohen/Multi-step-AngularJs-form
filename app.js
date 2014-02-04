@@ -12,6 +12,7 @@ function MainCtrl($scope, $http) {
   };
   $scope.update = function(user,nextStage) {
     $scope.master = angular.copy(user);
+    $scope.direction = 1;
     $scope.selection = nextStage;
   };
   $scope.reset = function() {
@@ -22,6 +23,7 @@ function MainCtrl($scope, $http) {
   };
   $scope.reset();
   $scope.backTo = function(stage) {
+    $scope.direction = 0;
     $scope.selection = stage;
   };
 
