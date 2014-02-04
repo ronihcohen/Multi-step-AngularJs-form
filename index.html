@@ -44,16 +44,17 @@
           <div class="col-xs-6">
             <div class="form-group" ng-class="{'has-error':  form.uPass.$invalid, 'has-success': !form.uPass.$invalid}">
               <label for="uPass ">Password</label>
-              <input type="text " class="form-control" name="uPass" placeholder="Password "  ng-model="user.pass " required=" " />
+              <input type="password" class="form-control" name="uPass" placeholder="Password "  ng-model="user.pass " required=" " ng-pattern="/^(?=.*\d)(?=.*\D).{6,}$/"/>
               <div class="err_tip " ng-show="form.uPass.$dirty && form.uPass.$invalid ">
                 <span ng-show="form.uPass.$error.required ">Password is required.</span>
+                <span ng-show="form.uPass.$error.pattern">Password must contain at least one digit and one letter and be at least 6 characters.</span>
               </div>
             </div>
           </div>
           <div class="col-xs-6 ">
             <div class="form-group " ng-class="{ 'has-error':  form.uPassConf.$invalid, 'has-success': !form.uPassConf.$invalid}">
               <label for="uPassConf">Confirm Password</label>
-              <input type="text" class="form-control" name="uPassConf" placeholder="Confirm Password" ng-model="user.passconf" required="" password-match="user.pass" />
+              <input type="password" class="form-control" name="uPassConf" placeholder="Confirm Password" ng-model="user.passconf" required="" password-match="user.pass" />
               <div class="err_tip" ng-show="form.uPassConf.$dirty && form.uPassConf.$invalid">
                 <span ng-show="form.uPassConf.$error.required">This field is required.</span>
                 <span ng-show="form.uPassConf.$error.unique">Password does not match the confirm password.</span>

@@ -9,9 +9,9 @@ function MainCtrl($scope, $http) {
 
   $scope.master = {
     name: "Ronny",
-    pass: "a",
-    passconf: "a",
-    email: "a@a",
+    pass: "1q2w3e",
+    passconf: "1q2w3e",
+    email: "ronihcohen@gmail.com",
   };
 
   $scope.longStage = 0;
@@ -52,7 +52,7 @@ function MainCtrl($scope, $http) {
       params: myParams
     }).
     success(function(data, status) {
-      // pre-selecting question
+      // pre-selecting question two
       $scope.questions = data.questions;
       $scope.user.secQuest= $scope.questions[1];
     }).
@@ -93,7 +93,7 @@ function MainCtrl($scope, $http) {
       $scope.status = status;
     });
   };
-  
+
   $scope.fetchSecQuest();
 
 };
