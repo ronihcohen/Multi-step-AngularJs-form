@@ -2,15 +2,19 @@
 body {
   background-color: #BFBAAF;
   margin:20px;
+
 }
 
-.formClass, .msg{
-  width: 1000px;
+.animate-switch-container.forward.longStage  {
+  transition:all 1s;
+  height: 500px;
 }
+
+
 .animate-switch-container {
   position:relative;
   overflow: hidden;
-  height: 400px;
+  height: 300px;
   width: 800px;
   border: solid 1px black;
   box-shadow: 6px 6px 15px gray;
@@ -23,6 +27,7 @@ body {
 }
 .animate-switch{
   padding:10px;
+  width: 100%;
 }
 .animate-switch.ng-animate {
   -webkit-transition:all 0.5s;

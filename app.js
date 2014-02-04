@@ -8,12 +8,16 @@ function MainCtrl($scope, $http) {
     pass: "a",
     passconf: "a",
     email: "a@a",
-    secquest: "1"
   };
+
+  $scope.longStage = 0;
   $scope.update = function(user,nextStage) {
     $scope.master = angular.copy(user);
     $scope.direction = 1;
     $scope.selection = nextStage;
+    if (nextStage=="stage3"){
+      $scope.longStage = 1;
+    }
   };
   $scope.reset = function() {
     $scope.user = angular.copy($scope.master);
@@ -54,14 +58,6 @@ error(function(data, status) {
 });
 };
 $scope.fetch();
-
-$scope.colors = [
-  {name:'black', shade:'dark'},
-  {name:'white', shade:'light'},
-  {name:'red', shade:'dark'},
-  {name:'blue', shade:'dark'},
-  {name:'yellow', shade:'light'}
-];
 
 };
 
