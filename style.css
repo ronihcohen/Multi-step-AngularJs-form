@@ -2,20 +2,30 @@
 body {
   background-color: #BFBAAF;
   margin:20px;
-
 }
-
 .animate-switch-container.forward.longStage  {
-  transition:all 1s;
-  height: 500px;
+  transition:all 0.5s;
+  height: 450px;
 }
 
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-in;
+  -moz-transition: opacity 0.25s ease-in;
+  -o-transition: opacity 0.25s ease-in;
+  -ms-transition: opacity 0.25s ease-in;
+  transition: opacity 0.25s ease-in;
+  transition-delay: 0.25s;
+}
+.fade.in{
+  opacity: 1;
+}
 
 .animate-switch-container {
   position:relative;
   overflow: hidden;
   height: 300px;
-  width: 800px;
+  width: 550px;
   border: solid 1px black;
   box-shadow: 6px 6px 15px gray;
   padding:10px;

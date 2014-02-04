@@ -93,11 +93,10 @@ function MainCtrl($scope, $http) {
       $scope.status = status;
     });
   };
-
+  
   $scope.fetchSecQuest();
 
 };
-
 
 /* Directives */
 app.directive('passwordMatch', [
