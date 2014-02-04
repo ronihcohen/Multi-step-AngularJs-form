@@ -54,7 +54,17 @@ error(function(data, status) {
 });
 };
 $scope.fetch();
+
+$scope.colors = [
+  {name:'black', shade:'dark'},
+  {name:'white', shade:'light'},
+  {name:'red', shade:'dark'},
+  {name:'blue', shade:'dark'},
+  {name:'yellow', shade:'light'}
+];
+
 };
+
 
 /* Directives */
 app.directive('passwordMatch', [
